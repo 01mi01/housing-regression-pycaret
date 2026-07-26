@@ -197,7 +197,16 @@ Varias variables numéricas están muy sesgadas por corresponder a característi
 
 Tras el análisis exploratorio, el dataset queda preparado para modelar: se descartan variables categóricas casi constantes y dos ventas atípicas, el objetivo se transforma con `log1p(SalePrice)`, las categóricas se codifican con one-hot y los datos se separan en entrenamiento/prueba (80/20). Están disponibles `X_train`, `X_test`, `y_train` y `y_test`.
 
-Pendiente: escalado (`StandardScaler`), selección de características (RFE y VIF), regresión con PyCaret, modelos Ridge / Lasso / ElasticNet, evaluación, predicción y conclusiones.
+Pendiente:
+
+1. Escalado de características (`StandardScaler`).
+2. Selección de características (RFE y VIF).
+3. Regresión lineal con PyCaret.
+4. Modelos de regularización Ridge, Lasso y ElasticNet.
+5. Análisis de residuos.
+6. Evaluación y valoración del modelo.
+7. Predicción.
+8. Conclusión y análisis final.
 
 ## Conclusiones
 
