@@ -195,15 +195,15 @@ Varias variables numéricas están muy sesgadas por corresponder a característi
 
 ### Construcción y Evaluación del Modelo
 
-1. División de datos de entrenamiento y prueba.
-2. Escalado de Características - StandardScaler.
-3. Ingeniería y Selección de Características usando RFE y el Factor de Inflación de Varianza.
-4. Regresión Lineal usando PyCaret.
-5. Modelos de Regularización Ridge, Lasso y ElasticNet.
-6. Análisis de Residuos.
-7. Evaluación y Valoración del Modelo.
-8. Predicción.
-9. Conclusión y Análisis Final.
+1. División de datos de entrenamiento y prueba. ✅ *(sección 6 del notebook — `X_train` / `X_test` / `y_train` / `y_test` listos; `y` en escala `log1p(SalePrice)`)*
+2. Escalado de Características - StandardScaler. *(sección 7 — pendiente)*
+3. Ingeniería y Selección de Características usando RFE y el Factor de Inflación de Varianza. *(sección 7 — pendiente)*
+4. Regresión Lineal usando PyCaret. *(sección 7 — pendiente)*
+5. Modelos de Regularización Ridge, Lasso y ElasticNet. *(sección 7 — pendiente)*
+6. Análisis de Residuos. *(sección 7 — pendiente)*
+7. Evaluación y Valoración del Modelo. *(sección 7 — pendiente)*
+8. Predicción. *(sección 7 — pendiente)*
+9. Conclusión y Análisis Final. *(sección 8 — pendiente)*
 
 ## Conclusiones
 
