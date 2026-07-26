@@ -195,17 +195,9 @@ Varias variables numéricas están muy sesgadas por corresponder a característi
 
 ### Construcción y Evaluación del Modelo
 
-#### Sección 6 — Preparación de datos y train/test (completada)
+Tras el análisis exploratorio, el dataset queda preparado para modelar: se descartan variables categóricas casi constantes y dos ventas atípicas, el objetivo se transforma con `log1p(SalePrice)`, las categóricas se codifican con one-hot y los datos se separan en entrenamiento/prueba (80/20). Están disponibles `X_train`, `X_test`, `y_train` y `y_test`.
 
-En el notebook se implementó la **sección 6** (Vilela, Bruno): a partir del dataset ya limpio del EDA se eliminaron variables categóricas casi constantes y dos ventas atípicas, se transformó el objetivo con `log1p(SalePrice)`, se aplicó one-hot encoding y se separó el conjunto en entrenamiento/prueba (80/20, `random_state=42`). Quedan disponibles `X_train`, `X_test`, `y_train` y `y_test` para la construcción de modelos.
-
-#### Secciones 7 y 8 — Pendientes
-
-1. Escalado de características (`StandardScaler`).
-2. Selección de características (RFE y VIF).
-3. Regresión lineal con PyCaret.
-4. Modelos regularizados: Ridge, Lasso y ElasticNet (λ óptimo, R², RMSE).
-5. Análisis de residuos, predicción y conclusiones.
+Pendiente: escalado (`StandardScaler`), selección de características (RFE y VIF), regresión con PyCaret, modelos Ridge / Lasso / ElasticNet, evaluación, predicción y conclusiones.
 
 ## Conclusiones
 
