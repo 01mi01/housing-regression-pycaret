@@ -195,15 +195,17 @@ Varias variables numéricas están muy sesgadas por corresponder a característi
 
 ### Construcción y Evaluación del Modelo
 
-1. División de datos de entrenamiento y prueba. *(sección 6 del notebook — `X_train` / `X_test` / `y_train` / `y_test` listos; `y` en escala `log1p(SalePrice)`)*
-2. Escalado de Características - StandardScaler. *(sección 7 — pendiente)*
-3. Ingeniería y Selección de Características usando RFE y el Factor de Inflación de Varianza. *(sección 7 — pendiente)*
-4. Regresión Lineal usando PyCaret. *(sección 7 — pendiente)*
-5. Modelos de Regularización Ridge, Lasso y ElasticNet. *(sección 7 — pendiente)*
-6. Análisis de Residuos. *(sección 7 — pendiente)*
-7. Evaluación y Valoración del Modelo. *(sección 7 — pendiente)*
-8. Predicción. *(sección 7 — pendiente)*
-9. Conclusión y Análisis Final. *(sección 8 — pendiente)*
+#### Sección 6 — Preparación de datos y train/test (completada)
+
+En el notebook se implementó la **sección 6** (Vilela, Bruno): a partir del dataset ya limpio del EDA se eliminaron variables categóricas casi constantes y dos ventas atípicas, se transformó el objetivo con `log1p(SalePrice)`, se aplicó one-hot encoding y se separó el conjunto en entrenamiento/prueba (80/20, `random_state=42`). Quedan disponibles `X_train`, `X_test`, `y_train` y `y_test` para la construcción de modelos.
+
+#### Secciones 7 y 8 — Pendientes
+
+1. Escalado de características (`StandardScaler`).
+2. Selección de características (RFE y VIF).
+3. Regresión lineal con PyCaret.
+4. Modelos regularizados: Ridge, Lasso y ElasticNet (λ óptimo, R², RMSE).
+5. Análisis de residuos, predicción y conclusiones.
 
 ## Conclusiones
 
