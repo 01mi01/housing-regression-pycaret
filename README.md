@@ -195,7 +195,7 @@ Varias variables numéricas están muy sesgadas por corresponder a característi
 
 ### Construcción y Evaluación del Modelo
 
-1. División de datos de entrenamiento y prueba. ✅ *(sección 6 del notebook — `X_train` / `X_test` / `y_train` / `y_test` listos; `y` en escala `log1p(SalePrice)`)*
+1. División de datos de entrenamiento y prueba. *(sección 6 del notebook — `X_train` / `X_test` / `y_train` / `y_test` listos; `y` en escala `log1p(SalePrice)`)*
 2. Escalado de Características - StandardScaler. *(sección 7 — pendiente)*
 3. Ingeniería y Selección de Características usando RFE y el Factor de Inflación de Varianza. *(sección 7 — pendiente)*
 4. Regresión Lineal usando PyCaret. *(sección 7 — pendiente)*
