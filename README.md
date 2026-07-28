@@ -197,20 +197,25 @@ Varias variables numéricas están muy sesgadas por corresponder a característi
 
 Tras el análisis exploratorio, el dataset queda preparado para modelar: se descartan variables categóricas casi constantes y dos ventas atípicas, el objetivo se transforma con `log1p(SalePrice)`, las categóricas se codifican con one-hot y los datos se separan en entrenamiento/prueba (80/20). Están disponibles `X_train`, `X_test`, `y_train` y `y_test`.
 
-Pendiente:
+El modelado (sección 7 del notebook) sigue estos pasos, ya implementados:
 
-1. Escalado de características (`StandardScaler`).
-2. Selección de características (RFE y VIF).
-3. Regresión lineal con PyCaret.
-4. Modelos de regularización Ridge, Lasso y ElasticNet.
-5. Análisis de residuos.
-6. Evaluación y valoración del modelo.
-7. Predicción.
-8. Conclusión y análisis final.
+1. **Escalado** de características con `StandardScaler` (ajustado solo con *train* para evitar *data leakage*).
+2. **Selección de características** mediante **VIF** (multicolinealidad) y **RFE**.
+3. **Comparación de modelos con PyCaret** (`setup` + `compare_models`) para justificar la familia elegida.
+4. **Ridge, Lasso y ElasticNet** con búsqueda del **λ óptimo** por validación cruzada (`KFold` de 10 pliegues).
+5. **Análisis de residuos** (normalidad, homocedasticidad, Durbin-Watson).
+6. **Evaluación** en el *hold-out* con R² y RMSE, en escala log y en precio real (`expm1`).
+7. **Predicción** de ejemplo y comparación real vs. predicho.
+8. **Conclusión y análisis final.**
+
+> **Enfoque de evaluación:** PyCaret se usa para comparar rápidamente varias familias de modelos. Las
+> métricas reportadas abajo provienen de la **evaluación reproducible sobre el *hold-out* del 20 %**
+> reservado antes del entrenamiento (semilla fija `random_state=42`), ajustando el λ con `GridSearchCV`.
 
 ## Conclusiones
 
-> **Pendiente:** los resultados se completarán una vez ejecutadas las secciones de modelado del notebook.
+> **Pendiente:** los resultados finales (λ óptimo, métricas y variables clave) se completarán a partir
+> de las salidas de la sección 7 del notebook.
 
 ### Regresión Ridge
 
