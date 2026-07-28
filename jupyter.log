@@ -1,0 +1,53 @@
+[I 2026-07-28 02:21:49.271 ServerApp] jupyter_lsp | extension was successfully linked.
+[I 2026-07-28 02:21:49.275 ServerApp] jupyter_server_terminals | extension was successfully linked.
+[I 2026-07-28 02:21:49.279 ServerApp] jupyterlab | extension was successfully linked.
+[I 2026-07-28 02:21:49.285 ServerApp] Writing Jupyter server cookie secret to C:\Users\Hp\AppData\Roaming\jupyter\runtime\jupyter_cookie_secret
+[I 2026-07-28 02:21:50.089 ServerApp] notebook_shim | extension was successfully linked.
+[I 2026-07-28 02:21:50.141 ServerApp] notebook_shim | extension was successfully loaded.
+[I 2026-07-28 02:21:50.143 ServerApp] jupyter_lsp | extension was successfully loaded.
+[I 2026-07-28 02:21:50.144 ServerApp] jupyter_server_terminals | extension was successfully loaded.
+[I 2026-07-28 02:21:50.146 LabApp] JupyterLab extension loaded from C:\Users\Hp\AppData\Local\Programs\Python\Python313\Lib\site-packages\jupyterlab
+[I 2026-07-28 02:21:50.146 LabApp] JupyterLab application directory is C:\Users\Hp\AppData\Local\Programs\Python\Python313\share\jupyter\lab
+[I 2026-07-28 02:21:50.147 LabApp] Extension Manager is 'pypi'.
+[I 2026-07-28 02:21:50.489 ServerApp] jupyterlab | extension was successfully loaded.
+[I 2026-07-28 02:21:50.490 ServerApp] Serving notebooks from local directory: C:\Users\Hp\Desktop\housing-regression-pycaret
+[I 2026-07-28 02:21:50.490 ServerApp] Jupyter Server 2.20.0 is running at:
+[I 2026-07-28 02:21:50.490 ServerApp] http://localhost:8888/lab?token=732fc475325923229b84bf7299d1fcb970adf31e10831b70
+[I 2026-07-28 02:21:50.490 ServerApp]     http://127.0.0.1:8888/lab?token=732fc475325923229b84bf7299d1fcb970adf31e10831b70
+[I 2026-07-28 02:21:50.490 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 2026-07-28 02:21:50.561 ServerApp] 
+    
+    To access the server, open this file in a browser:
+        file:///C:/Users/Hp/AppData/Roaming/jupyter/runtime/jpserver-36208-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/lab?token=732fc475325923229b84bf7299d1fcb970adf31e10831b70
+        http://127.0.0.1:8888/lab?token=732fc475325923229b84bf7299d1fcb970adf31e10831b70
+[I 2026-07-28 02:21:53.057 ServerApp] Skipped non-installed server(s): basedpyright, bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyrefly, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
+[I 2026-07-28 02:22:00.262 LabApp] Build is up to date
+[I 2026-07-28 02:22:10.118 ServerApp] Writing notebook-signing key to C:\Users\Hp\AppData\Roaming\jupyter\notebook_secret
+[W 2026-07-28 02:22:10.127 ServerApp] Notebook MFSDv1p2_Regresion_Avanzada_con_PyCaret.ipynb is not trusted
+[I 2026-07-28 02:22:13.666 ServerApp] Kernel started: 8117a4d2-ca78-4a85-97e1-7363b6c1c80a
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[I 2026-07-28 02:22:17.147 ServerApp] Adapting from protocol version 5.3 (kernel 8117a4d2-ca78-4a85-97e1-7363b6c1c80a) to 5.4 (client).
+[I 2026-07-28 02:22:17.147 ServerApp] Adapting from protocol version 5.3 (kernel 8117a4d2-ca78-4a85-97e1-7363b6c1c80a) to 5.4 (client).
+[I 2026-07-28 02:22:17.148 ServerApp] Connecting to kernel 8117a4d2-ca78-4a85-97e1-7363b6c1c80a.
+[I 2026-07-28 02:22:17.156 ServerApp] Connecting to kernel 8117a4d2-ca78-4a85-97e1-7363b6c1c80a.
+[W 2026-07-28 02:22:17.164 ServerApp] The websocket_ping_timeout (90000) cannot be longer than the websocket_ping_interval (30000).
+    Setting websocket_ping_timeout=30000
+[I 2026-07-28 02:22:17.284 ServerApp] Adapting from protocol version 5.3 (kernel 8117a4d2-ca78-4a85-97e1-7363b6c1c80a) to 5.4 (client).
+[I 2026-07-28 02:22:17.286 ServerApp] Connecting to kernel 8117a4d2-ca78-4a85-97e1-7363b6c1c80a.
+[I 2026-07-28 02:22:56.476 ServerApp] Adapting from protocol version 5.3 (kernel 8117a4d2-ca78-4a85-97e1-7363b6c1c80a) to 5.4 (client).
+[I 2026-07-28 02:22:56.477 ServerApp] Connecting to kernel 8117a4d2-ca78-4a85-97e1-7363b6c1c80a.
+[I 2026-07-28 02:22:57.128 LabApp] Build is up to date
+[I 2026-07-28 02:23:00.273 ServerApp] Starting buffering for 8117a4d2-ca78-4a85-97e1-7363b6c1c80a:84170599-192a-4ebc-8867-b922f51242ec
+[I 2026-07-28 02:26:24.569 ServerApp] Creating new notebook in 
+[I 2026-07-28 02:26:24.814 ServerApp] Kernel started: 10e9a59e-1445-4311-8299-16672c57209e
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[I 2026-07-28 02:26:25.858 ServerApp] Adapting from protocol version 5.3 (kernel 10e9a59e-1445-4311-8299-16672c57209e) to 5.4 (client).
+[I 2026-07-28 02:26:25.861 ServerApp] Connecting to kernel 10e9a59e-1445-4311-8299-16672c57209e.
+[W 2026-07-28 02:26:31.158 ServerApp] Notebook MFSDv1p2_Regresion_Avanzada_con_PyCaret.ipynb is not trusted
+[I 2026-07-28 02:26:31.508 ServerApp] Adapting from protocol version 5.3 (kernel 8117a4d2-ca78-4a85-97e1-7363b6c1c80a) to 5.4 (client).
+[I 2026-07-28 02:26:31.509 ServerApp] Connecting to kernel 8117a4d2-ca78-4a85-97e1-7363b6c1c80a.
+[I 2026-07-28 02:28:25.745 ServerApp] Saving file at /Untitled.ipynb
+[I 2026-07-28 02:28:31.732 ServerApp] Saving file at /MFSDv1p2_Regresion_Avanzada_con_PyCaret.ipynb
+[W 2026-07-28 02:28:31.733 ServerApp] Notebook MFSDv1p2_Regresion_Avanzada_con_PyCaret.ipynb is not trusted
