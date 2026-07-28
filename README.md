@@ -214,30 +214,56 @@ El modelado (sección 7 del notebook) sigue estos pasos, ya implementados:
 
 ## Conclusiones
 
-> **Pendiente:** los resultados finales (λ óptimo, métricas y variables clave) se completarán a partir
-> de las salidas de la sección 7 del notebook.
+**Modelo recomendado: Regresión Lasso.** Logra el mejor R² en prueba con muchas menos variables que
+Ridge, lo que facilita explicar al negocio qué mueve el precio. ElasticNet (`l1_ratio ≈ 0.9`) converge
+prácticamente a la misma solución que Lasso. Las métricas provienen de la evaluación sobre el *hold-out*
+del 20 % (292 viviendas), no vistas durante el entrenamiento ni el tuning del λ.
 
 ### Regresión Ridge
 
-* **Valor óptimo de lambda:** _por definir_
-* **R² en entrenamiento:** _por definir_
-* **R² en prueba:** _por definir_
-* **RMSE en prueba:** _por definir_
+* **Valor óptimo de lambda:** ≈ 172.7
+* **R² en entrenamiento:** 0.94
+* **R² en prueba:** 0.91
+* **RMSE en prueba:** $21 420
 
 ### Regresión Lasso
 
-* **Valor óptimo de lambda:** _por definir_
-* **R² en entrenamiento:** _por definir_
-* **R² en prueba:** _por definir_
-* **RMSE en prueba:** _por definir_
+* **Valor óptimo de lambda:** ≈ 0.0009
+* **R² en entrenamiento:** 0.94
+* **R² en prueba:** 0.92
+* **RMSE en prueba:** $19 202
 
 ### Regresión ElasticNet
 
-* **Valor óptimo de lambda:** _por definir_
-* **R² en entrenamiento:** _por definir_
-* **R² en prueba:** _por definir_
-* **RMSE en prueba:** _por definir_
+* **Valor óptimo de lambda:** ≈ 0.0009 (`l1_ratio = 0.9`)
+* **R² en entrenamiento:** 0.94
+* **R² en prueba:** 0.92
+* **RMSE en prueba:** $19 199
+
+### Precisión sobre el hold-out completo
+
+Sobre las 292 viviendas del conjunto de prueba (modelo Lasso, precio real vs. predicho):
+
+* **MAPE (error porcentual absoluto medio):** 8.5 %
+* **MAE (error absoluto medio):** $13 962
+* **Error porcentual mediano:** 5.9 %
 
 ### Las Variables Más Significativas
 
-> **Pendiente:** se listarán las variables con mayor peso en los coeficientes del modelo final.
+Lasso conserva 98 de las 225 variables (tras one-hot encoding). Las de mayor peso, en orden de
+importancia, son: **tamaño habitable** (`GrLivArea`), **calidad general** (`OverallQual`),
+**antigüedad y remodelación** (`YearBuilt`, `YearRemodAdd`), **sótano** (`TotalBsmtSF`, `BsmtFinSF1`),
+**ubicación** (`Neighborhood`, `MSZoning`) y **tipo de venta** (`SaleType_New`, `SaleCondition_Normal`).
+
+El contraste con RFE (que preselecciona un top-30 de forma independiente) coincide en 23 variables con
+las que conserva Lasso, justo en ese mismo núcleo, lo que refuerza la confianza en la selección.
+
+### Recomendación de negocio y límites del modelo
+
+Dado que el MAPE del modelo es ~8.5 %, un criterio de compra razonable es priorizar viviendas cuyo
+precio real esté **más de un 8-10 % por debajo del precio predicho**: un margen menor puede deberse al
+ruido propio del modelo y no a una oportunidad real. Los residuos son aproximadamente normales y sin
+patrón (Durbin-Watson ≈ 2), por lo que las predicciones son fiables **dentro del rango de datos
+entrenado** (`GrLivArea ≤ 4000`, sin los dos outliers grandes-y-baratos removidos en la preparación).
+Aplicar el modelo a propiedades muy fuera de ese rango es una extrapolación y su error esperado será
+mayor al reportado aquí.
