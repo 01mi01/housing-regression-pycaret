@@ -1,6 +1,6 @@
 # Predicción de Precios de Bienes Raíces en Australia - Regresión Avanzada
 
-Modelo de regresión regularizada (Ridge, Lasso y ElasticNet) construido con PyCaret para predecir el precio de venta de viviendas e identificar las variables que mejor lo explican.
+Modelo de regresión regularizada (Ridge, Lasso y ElasticNet) para predecir el precio de venta de viviendas e identificar las variables que mejor lo explican. PyCaret se utiliza para la comparación exploratoria de familias de modelos, y scikit-learn para el ajuste del λ y la evaluación final.
 
 ## Índice
 
@@ -42,7 +42,7 @@ Todo el desarrollo se encuentra en un único notebook: `MFSDv1p2_Regresion_Avanz
 
 * Análisis exploratorio de datos (EDA)
 * Limpieza de datos e imputación de valores faltantes
-* Análisis univariable, bivariable y multivariable
+* Análisis univariable y bivariable (correlaciones, eta cuadrado y multicolinealidad)
 * Selección de características mediante RFE y Factor de Inflación de Varianza (VIF)
 * Regresión lineal y regresión regularizada: Ridge, Lasso y ElasticNet
 * Validación cruzada y búsqueda de hiperparámetros (`KFold`, `GridSearchCV`)
@@ -106,6 +106,7 @@ jupyter lab MFSDv1p2_Regresion_Avanzada_con_PyCaret.ipynb
 ├── MFSDv1p2_Regresion_Avanzada_con_PyCaret.ipynb   # Notebook con todo el desarrollo
 ├── _data/
 │   └── dataset.csv                                 # Conjunto de datos de entrada
+├── .gitignore
 └── README.md
 ```
 
@@ -138,12 +139,14 @@ Modelar el precio de las casas con las variables independientes disponibles. La 
 
 ### Preparación de Datos
 
-1. Limpieza de Datos y Análisis de Datos Faltantes.
-2. Análisis y Tratamiento de Valores Atípicos.
-3. Derivación de Columnas Categóricas.
-4. Análisis Univariable.
-5. Análisis Bivariable.
-6. Análisis Multivariable.
+1. **Limpieza de datos y análisis de valores faltantes** (sección 4): eliminación de `Id` y de las cuatro columnas con más del 80 % de faltantes, relleno con la categoría `'None'` de los `NA` que representan "sin característica", imputación por mediana y por cero según corresponda, y verificación de duplicados.
+2. **Análisis univariable** (sección 5): distribución de la variable objetivo y de las numéricas continuas, asimetría, frecuencias de las categóricas e identificación de variables casi constantes.
+3. **Análisis bivariable** (sección 5): correlaciones con `SalePrice`, eta cuadrado de las categóricas, detección de pares multicolineales y de ventas atípicas.
+4. **Tratamiento de valores atípicos** (sección 6): eliminación de las dos ventas de viviendas grandes a precio anormalmente bajo.
+5. **Reducción de variables** (sección 6): descarte de las cinco categóricas dominadas por una sola categoría.
+6. **Transformación de la variable objetivo** (sección 6): `log1p(SalePrice)` para reducir la asimetría.
+7. **Codificación de variables categóricas** (sección 6): *one-hot encoding* con `pd.get_dummies(drop_first=True)`, que produce 225 features.
+8. **División entrenamiento/prueba** (sección 6): *hold-out* del 20 % con `random_state=42`.
 
 ### Hallazgos del Análisis Exploratorio
 
@@ -201,16 +204,21 @@ El modelado (sección 7 del notebook) sigue estos pasos, ya implementados:
 
 1. **Escalado** de características con `StandardScaler` (ajustado solo con *train* para evitar *data leakage*).
 2. **Selección de características** mediante **VIF** (multicolinealidad) y **RFE**.
-3. **Comparación de modelos con PyCaret** (`setup` + `compare_models`) para justificar la familia elegida.
+3. **Comparación exploratoria de modelos con PyCaret**, mediante la clase `RegressionExperiment` de la versión `v4.0.0a0`.
 4. **Ridge, Lasso y ElasticNet** con búsqueda del **λ óptimo** por validación cruzada (`KFold` de 10 pliegues).
 5. **Análisis de residuos** (normalidad, homocedasticidad, Durbin-Watson).
 6. **Evaluación** en el *hold-out* con R² y RMSE, en escala log y en precio real (`expm1`).
 7. **Predicción** de ejemplo y comparación real vs. predicho.
 8. **Conclusión y análisis final.**
 
-> **Enfoque de evaluación:** PyCaret se usa para comparar rápidamente varias familias de modelos. Las
-> métricas reportadas abajo provienen de la **evaluación reproducible sobre el *hold-out* del 20 %**
-> reservado antes del entrenamiento (semilla fija `random_state=42`), ajustando el λ con `GridSearchCV`.
+> **Enfoque de evaluación y nota sobre PyCaret:** la única versión de PyCaret compatible con la versión
+> de Python de Colab es la preliminar `v4.0.0a0`, cuya API orientada a objetos resultó poco fiable en
+> este entorno: `compare_models` devuelve valores de R² negativos —inconsistentes con el desempeño real
+> de los mismos modelos— y el tuning con `tune_model` lanza una excepción. Por ese motivo la comparación
+> con PyCaret se conserva únicamente como paso exploratorio, y **la selección del λ, la elección del
+> modelo y todas las métricas reportadas abajo se calculan con scikit-learn**: `GridSearchCV` con
+> `KFold` de 10 pliegues sobre entrenamiento, y evaluación final sobre el *hold-out* del 20 % reservado
+> de antemano, con semilla fija (`random_state=42`) para garantizar reproducibilidad.
 
 ## Conclusiones
 
